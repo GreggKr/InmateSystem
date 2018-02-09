@@ -4,6 +4,19 @@ class Inmate(private val number: Long, private val firstName: String, private va
     override fun toString(): String {
         return "Inmate[num=$number, name=${"$firstName $lastName"}, inJail=$jailed]"
     }
+
+    enum class SecurityLevel(private val level: Int) {
+        MIN(0),
+        MAX(3);
+
+        fun getLevel(): Int {
+            return level
+        }
+
+        fun compare(other: SecurityLevel): Boolean {
+            return level > other.level
+        }
+    }
 }
 
 class InmateBuilder {
