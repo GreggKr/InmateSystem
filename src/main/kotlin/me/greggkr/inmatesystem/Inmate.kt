@@ -1,8 +1,8 @@
 package me.greggkr.inmatesystem
 
-class Inmate(private val number: Long, private val firstName: String, private val lastName: String, private val jailed: Boolean, private val prison: Prison? = null) {
+class Inmate(private val number: Long, private val firstName: String, private val lastName: String, private val prison: Prison? = null) {
     override fun toString(): String {
-        return "Inmate[num=$number, name=${"$firstName $lastName"}, inJail=$jailed]"
+        return "Inmate[num=$number, name=${"$firstName $lastName"}, inJail=${prison != null}, prison=$prison]"
     }
 
     enum class SecurityLevel(private val level: Int) {
@@ -23,7 +23,6 @@ class InmateBuilder {
     private var number: Long = Long.MIN_VALUE
     private var firstName: String = ""
     private var lastName: String = ""
-    private var jailed: Boolean = false
     private var prison: Prison? = null
 
     fun setNumber(number: Long): InmateBuilder {
@@ -41,17 +40,12 @@ class InmateBuilder {
         return this
     }
 
-    fun setJailed(jailed: Boolean): InmateBuilder {
-        this.jailed = jailed
-        return this
-    }
-
     fun setPrison(prison: Prison): InmateBuilder {
         this.prison = prison
         return this
     }
 
     fun build(): Inmate {
-        return Inmate(number, firstName, lastName, jailed, prison)
+        return Inmate(number, firstName, lastName, prison)
     }
 }
