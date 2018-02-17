@@ -1,4 +1,4 @@
-package me.greggkr.inmatesystem
+import me.greggkr.inmatesystem.Inmate
 
 fun Array<String>.main() {
     val inmate: Inmate = Inmate.Builder()

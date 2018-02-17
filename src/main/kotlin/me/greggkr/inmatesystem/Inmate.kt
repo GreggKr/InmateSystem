@@ -8,7 +8,6 @@ class Inmate(private val number: Long, private val firstName: String, private va
     enum class SecurityLevel(val level: Int) {
         MIN(0),
         MAX(3);
-
     }
 
     class Builder {
