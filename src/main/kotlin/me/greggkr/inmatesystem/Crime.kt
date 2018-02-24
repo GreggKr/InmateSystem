@@ -1,3 +1,3 @@
 package me.greggkr.inmatesystem
 
-class Crime(val time: Long)
+data class Crime(val time: Long)

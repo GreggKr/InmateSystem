@@ -7,15 +7,11 @@ data class Inmate(private val number: Long,
                   private val country: String,
                   private val crimes: List<Crime> = ArrayList(),
                   private val prison: Prison? = null) {
-    fun getTimeInPrison(): Long {
-        var time: Long = 0
-        crimes.forEach { time += it.time }
 
-        return time
-    }
+    fun getTimeInPrison(): Long = crimes.map { it.time }.sum()
 
     enum class SecurityLevel(val level: Int) {
         MIN(0),
-        MAX(3);
+        MAX(3)
     }
 }
