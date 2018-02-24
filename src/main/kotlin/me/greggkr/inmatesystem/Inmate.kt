@@ -31,7 +31,7 @@ class Inmate(private val number: Long, private val firstName: String, private va
 
         fun setNumber(number: Long) = also { this.number = number }
 
-        fun setFirstname(firstName: String) = also { this.firstName = firstName }
+        fun setFirstName(firstName: String) = also { this.firstName = firstName }
 
         fun setLastName(lastName: String) = also { this.lastName = lastName }
 
